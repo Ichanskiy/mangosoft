@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @PutMapping(value = ControllerAPI.GENERAL_REQUEST)
-    public ResponseEntity<User> updateUser(@Valid User user) {
+    public ResponseEntity<User> updateUser(@Valid @RequestBody User user) {
         log.info("Update user...");
         User userDb = userService.findUserByEmail(user.getEmail());
         if (userDb == null) {
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @DeleteMapping(value = ControllerAPI.GENERAL_REQUEST)
-    public ResponseEntity<User> deleteUser(@Valid User user) {
+    public ResponseEntity<User> deleteUser(@Valid @RequestBody User user) {
         log.info("Delete user...");
         User userDb = userService.findUserByEmail(user.getEmail());
         if (userDb == null) {

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -20,7 +21,7 @@ public class RegistrationController {
 	private UserService userService;
 
 	@PostMapping(value = ControllerAPI.REGISTRATION)
-	public ResponseEntity<User> createNewUser(@Valid User user, BindingResult bindingResult) {
+	public ResponseEntity<User> createNewUser(@Valid @RequestBody User user, BindingResult bindingResult) {
 		log.info("Creating new user...");
 		User userExists = userService.findUserByEmail(user.getEmail());
 		if (!userService.verifyCountPassword(user)) {

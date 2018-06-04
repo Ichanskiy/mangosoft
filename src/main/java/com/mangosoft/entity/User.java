@@ -43,13 +43,4 @@ public class User extends BaseObject{
     @JsonProperty
     @Column(name = LAST_NAME)
     private String lastName;
-
-    @JsonProperty
-    @Column(name = ACTIVE)
-    private int active;
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = JOIN_TABLE, joinColumns = @JoinColumn(name = JOIN_COLUMN_USER), inverseJoinColumns = @JoinColumn(name = JOIN_COLUMN_ROLE))
-//    public Set<Role> roles;
-
 }
