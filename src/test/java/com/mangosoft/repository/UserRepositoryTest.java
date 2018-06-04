@@ -37,6 +37,7 @@ class UserRepositoryTest {
     void saveUser() {
         User user = new User();
         user.setEmail("user@mail.com");
+        user.setPassword("1111");
         User userDb = userRepository.saveAndFlush(user);
         assertEquals(user, userDb);
     }
